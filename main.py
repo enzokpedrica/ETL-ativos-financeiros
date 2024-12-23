@@ -1,11 +1,17 @@
 import inserir_ativos
 import criacao_db
+import subprocess
 
 try:
     cns, mycursor = criacao_db.conectar_banco()
     criacao_db.criar_database(cns, mycursor)
 
     criacao_db.criar_tabelas(cns, mycursor)
+
+    # df_1 = criacao_db.obter_dados(cns)
+    # print(df_1[df_1["Ativo_id"]==2])
+
+    
 
     print(" -- PROGRAMA DE ATUALIZAÇÃO -- ")
     print("Qual ativo deseja escolher?")
@@ -49,6 +55,7 @@ try:
             inserir_ativos.atualizar_tick_diario("NVDA")
         else:
             print("Tchau")
+
 finally:
     # Encerrar conexão
     mycursor.close()

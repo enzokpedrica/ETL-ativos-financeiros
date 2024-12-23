@@ -55,4 +55,7 @@ def atualizar_tick_diario(tick):
         cns.commit()
     except:
         print(f'erro')
+
+
+
         
