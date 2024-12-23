@@ -14,7 +14,7 @@ try:
     
 
     print(" -- PROGRAMA DE ATUALIZAÇÃO -- ")
-    print("Qual ativo deseja escolher?")
+    print("Qual ativo deseja escolher para hoje?")
     print("""
     [1] - Microsoft - MSFT
     [2] - Apple - AAPL
