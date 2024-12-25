@@ -22,7 +22,7 @@ try:
     [4] - Atualizar todas
     """)
     resposta_acao = int(input("Digite sua resposta: "))
-    print(" -- Deseja qual tipo de inserção? -- ")
+    print(" -- Deseja qual tipo de inserçã? -- ")
     print("""
     [1] - Histórico
     [2] - Diário
