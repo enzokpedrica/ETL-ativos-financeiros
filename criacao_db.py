@@ -1,8 +1,7 @@
 import mysql.connector
 import pandas as pd
-import streamlit as st
 
-
+# Conexão do meu Banco de dados
 def conectar_banco():
     try:
         cns = mysql.connector.connect(
@@ -18,6 +17,7 @@ def conectar_banco():
         print(f"Erro na conexão com o Banco de Dados: {err}")
         return None, None
 
+# Criação do DataBase
 def criar_database(cns,mycursor):
     try:
         mycursor.execute("CREATE DATABASE IF NOT EXISTS acoes")
@@ -28,6 +28,7 @@ def criar_database(cns,mycursor):
         print(f"Erro ao criar ou selecionar o banco: {err}")
 
 
+# Criacao das minhas tabelas
 def criar_tabelas(cns, mycursor):
     try:
         # Criar a tabela `ativos`
@@ -57,18 +58,21 @@ def criar_tabelas(cns, mycursor):
     except mysql.connector.Error as err:
         print(f"Erro ao criar as tabelas: {err}")
 
+
+
 def obter_dados(cns):
-    """Executa uma query no banco de dados e retorna os dados em um DataFrame."""
     try:
         query = "SELECT * FROM historico"  # Substitua pela sua query
-        df = pd.read_sql(query, con=cns)  # Use a conexão `cns`
+        df = pd.read_sql(query, con=cns) # Aqui o pandas está lendo meu DB, estou passando parâmetro e conexão
         return df
+    
     except Exception as e:
         print(f"Erro ao executar a consulta: {e}")
         return None
 
 cns, mycursor = conectar_banco()
 
+# Executa se conexão e conector não forem None
 if cns and mycursor:
     criar_database(cns, mycursor) 
     criar_tabelas(cns, mycursor)

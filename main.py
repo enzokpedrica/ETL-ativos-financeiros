@@ -1,6 +1,5 @@
 import inserir_ativos
 import criacao_db
-import subprocess
 
 try:
     cns, mycursor = criacao_db.conectar_banco()
