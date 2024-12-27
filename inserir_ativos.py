@@ -6,7 +6,7 @@ cns, mycursor = criacao_db.conectar_banco()
 mycursor.execute("USE acoes")
 
 def inserir_ativos():
-    sql = "INSERT INTO IF NOT EXISTS ativos (Ticker, Ticker_id) VALUES (%s, %s)"
+    sql = "INSERT IGNORE INTO ativos(Ticker, Ticker_id) VALUES (%s, %s)"
     valores = [("MSFT", 1), ("AAPL" , 2) , ("NVDA", 3)]
     mycursor.executemany(sql, valores)
     cns.commit()
@@ -25,7 +25,7 @@ def atualizar_tick_historico(tick):
     else:
         ativo = 3
 
-    for _, row in df_atual.iterrows():
+    for _, row in df_atual.iterrows(): #iterrows retorna (indice, linha)
         mycursor.execute('''
         INSERT INTO historico (Date, Open, High, Low, Close, Ativo_id)
         VALUES (%s, %s, %s, %s, %s, %s)
