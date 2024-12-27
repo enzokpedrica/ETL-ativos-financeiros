@@ -59,16 +59,18 @@ def criar_tabelas(cns, mycursor):
         print(f"Erro ao criar as tabelas: {err}")
 
 
-
+# BUILDING -------------------------------
 def obter_dados(cns):
     try:
-        query = "SELECT * FROM historico"  # Substitua pela sua query
+        query = "SELECT * FROM historico"
         df = pd.read_sql(query, con=cns) # Aqui o pandas está lendo meu DB, estou passando parâmetro e conexão
         return df
     
     except Exception as e:
         print(f"Erro ao executar a consulta: {e}")
         return None
+# BUILDING -------------------------------
+
 
 cns, mycursor = conectar_banco()
 
@@ -76,5 +78,3 @@ cns, mycursor = conectar_banco()
 if cns and mycursor:
     criar_database(cns, mycursor) 
     criar_tabelas(cns, mycursor)
-    cns.close()
-    # print("Conexão fechada.")

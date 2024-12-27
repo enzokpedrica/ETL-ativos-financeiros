@@ -2,14 +2,18 @@ import inserir_ativos
 import criacao_db
 
 try:
+
+    # TALVEZ MELHORAR ISSO AQUI, PRECISA EXECUTAR TODA HORA????
     cns, mycursor = criacao_db.conectar_banco()
     criacao_db.criar_database(cns, mycursor)
 
     criacao_db.criar_tabelas(cns, mycursor)
 
+
+#BUILDING ---------------------
     # df_1 = criacao_db.obter_dados(cns)
     # print(df_1[df_1["Ativo_id"]==2])
-
+#BUILDING ---------------------
     
 
     print(" -- PROGRAMA DE ATUALIZAÇÃO -- ")
@@ -21,7 +25,9 @@ try:
     [4] - Atualizar todas
     """)
     resposta_acao = int(input("Digite sua resposta: "))
-    print(" -- Deseja qual tipo de inserçã? -- ")
+    
+
+    print(" -- Deseja qual tipo de inserção? -- ")
     print("""
     [1] - Histórico
     [2] - Diário
@@ -40,8 +46,9 @@ try:
             inserir_ativos.atualizar_tick_historico("AAPL")
             inserir_ativos.atualizar_tick_historico("NVDA")
         else:
-            print("Tchau")
-    else:
+            print("TICKER INCORRETO")
+
+    elif resposta_periodo == 2:
         if resposta_acao == 1:
             inserir_ativos.atualizar_tick_diario("MSFT")
         elif resposta_acao == 2:
@@ -53,7 +60,9 @@ try:
             inserir_ativos.atualizar_tick_diario("AAPL")
             inserir_ativos.atualizar_tick_diario("NVDA")
         else:
-            print("Tchau")
+            print("TICKER INCORRETO")
+    else:
+        print("PERÍODO NÃO IDENTIFICADO")
 
 finally:
     # Encerrar conexão
