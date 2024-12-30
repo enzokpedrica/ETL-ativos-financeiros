@@ -1,5 +1,7 @@
 import inserir_ativos
 import criacao_db
+import seaborn as sns
+from matplotlib import pyplot as plt
 
 try:
 
@@ -9,11 +11,8 @@ try:
 
     criacao_db.criar_tabelas(cns, mycursor)
 
+    df_1 = criacao_db.obter_dados(cns)
 
-#BUILDING ---------------------
-    # df_1 = criacao_db.obter_dados(cns)
-    # print(df_1[df_1["Ativo_id"]==2])
-#BUILDING ---------------------
     
 
     print(" -- PROGRAMA DE ATUALIZAÇÃO -- ")
@@ -63,9 +62,22 @@ try:
             print("TICKER INCORRETO")
     else:
         print("PERÍODO NÃO IDENTIFICADO")
+    
+
+    print("Deseja visualizar os dados?")
+    print("""
+    [1] - Sim
+    [2] - Não    
+    """)
+    visualizacao = int(input("Digite sua resposta: "))
+
+    if visualizacao == 1:
+        print(df_1)
+    else:
+        ...
 
 finally:
-    # Encerrar conexão
+    # df_1["High"].plot()
     mycursor.close()
     cns.close()
     print("Conexão encerrada.")
