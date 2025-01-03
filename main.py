@@ -71,10 +71,16 @@ try:
     visualizacao = int(input("Digite sua resposta: "))
 
     if visualizacao == 1:
-        print(df_1)
+        dados_1 = print(df_1)
 
     else:
         ...
+
+    # st.write("Gráfico")
+    # st.line_chart(dados_1)
+
+    # st.write("Fim")
+
 
 finally:
     # df_1["High"].plot()
