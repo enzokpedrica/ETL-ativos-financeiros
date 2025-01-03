@@ -1,7 +1,6 @@
 import inserir_ativos
 import criacao_db
-import seaborn as sns
-from matplotlib import pyplot as plt
+import streamlit as st
 
 try:
 
@@ -62,9 +61,9 @@ try:
             print("TICKER INCORRETO")
     else:
         print("PERÍODO NÃO IDENTIFICADO")
-    
 
-    print("Deseja visualizar os dados?")
+
+    print("Deseja visualizar todos os dados?")
     print("""
     [1] - Sim
     [2] - Não    
@@ -73,6 +72,7 @@ try:
 
     if visualizacao == 1:
         print(df_1)
+
     else:
         ...
 
