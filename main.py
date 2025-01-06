@@ -6,9 +6,9 @@ try:
 
     # TALVEZ MELHORAR ISSO AQUI, PRECISA EXECUTAR TODA HORA????
     cns, mycursor = criacao_db.conectar_banco()
-    criacao_db.criar_database(cns, mycursor)
+    # criacao_db.criar_database(cns, mycursor)
 
-    criacao_db.criar_tabelas(cns, mycursor)
+    # criacao_db.criar_tabelas(cns, mycursor)
 
     df_1 = criacao_db.obter_dados(cns)
 
@@ -71,7 +71,7 @@ try:
     visualizacao = int(input("Digite sua resposta: "))
 
     if visualizacao == 1:
-        dados_1 = print(df_1)
+        print(df_1)
 
     else:
         ...
