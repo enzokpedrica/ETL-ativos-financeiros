@@ -1,4 +1,4 @@
-# 📊 | Projeto de ETL com Ativos Financeiros
+# 📊 | ETL com Ativos Financeiros
 O projeto proposto busca praticarmos os conceitos de ETL, onde extraio (E) dados de ativos financeiros através da biblioteca YFinance, faço a transformação (T) para ir formatado corretamente
 para a última etapa, com isso finalizamos com o carregamento (L) para um banco de dados MySql
 
